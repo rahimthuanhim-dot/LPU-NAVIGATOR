@@ -1,0 +1,61 @@
+{
+  "version": 8,
+  "name": "Offline placeholder map",
+  "glyphs": "file://__APP_STORAGE__/glyphs/{fontstack}/{range}.pbf",
+  "sources": {
+    "placeholder": {
+      "type": "geojson",
+      "data": "file://__APP_STORAGE__/test.geojson"
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": {
+        "background-color": "#f2efe9"
+      }
+    },
+    {
+      "id": "placeholder-polygons",
+      "type": "fill",
+      "source": "placeholder",
+      "filter": ["==", ["geometry-type"], "Polygon"],
+      "paint": {
+        "fill-color": ["get", "color"],
+        "fill-opacity": 0.65,
+        "fill-outline-color": "#263238"
+      }
+    },
+    {
+      "id": "placeholder-lines",
+      "type": "line",
+      "source": "placeholder",
+      "filter": ["==", ["geometry-type"], "LineString"],
+      "paint": {
+        "line-color": "#263238",
+        "line-width": 4
+      }
+    },
+    {
+      "id": "placeholder-labels",
+      "type": "symbol",
+      "source": "placeholder",
+      "layout": {
+        "symbol-placement": "point",
+        "text-field": ["get", "name"],
+        "text-font": ["NotoSansRegular"],
+        "text-size": 14,
+        "text-offset": [0, 0],
+        "text-anchor": "center",
+        "text-allow-overlap": true,
+        "text-ignore-placement": true
+      },
+      "paint": {
+        "text-color": "#111827",
+        "text-halo-color": "#ffffff",
+        "text-halo-width": 2
+      }
+    }
+  ]
+}

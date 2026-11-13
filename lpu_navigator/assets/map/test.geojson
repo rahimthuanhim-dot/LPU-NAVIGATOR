@@ -1,0 +1,118 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER North Block",
+        "color": "#90caf9"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [75.6978, 31.2512],
+            [75.7012, 31.2512],
+            [75.7012, 31.2532],
+            [75.6978, 31.2532],
+            [75.6978, 31.2512]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER South Block",
+        "color": "#a5d6a7"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [75.6978, 31.2478],
+            [75.7012, 31.2478],
+            [75.7012, 31.2498],
+            [75.6978, 31.2498],
+            [75.6978, 31.2478]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER East Court",
+        "color": "#ffcc80"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [75.7018, 31.2493],
+            [75.7040, 31.2493],
+            [75.7040, 31.2513],
+            [75.7018, 31.2513],
+            [75.7018, 31.2493]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER Main Walk"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [75.6968, 31.2500],
+          [75.7048, 31.2500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER North-South Walk"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [75.6995, 31.2468],
+          [75.6995, 31.2538]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER North Label"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.6995, 31.2522]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER South Label"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.6995, 31.2488]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "PLACEHOLDER East Label"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [75.7029, 31.2503]
+      }
+    }
+  ]
+}
