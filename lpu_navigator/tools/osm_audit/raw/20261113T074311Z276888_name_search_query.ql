@@ -1,0 +1,1 @@
+[out:json][timeout:60];(nwr["amenity"~"^(university|college)$"]["name"~"LPU",i](around:3000,31.2534,75.7035);nwr["landuse"="education"]["name"~"LPU",i](around:3000,31.2534,75.7035););out tags center geom;

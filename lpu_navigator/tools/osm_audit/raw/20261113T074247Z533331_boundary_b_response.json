@@ -1,0 +1,51 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-13T07:41:35Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 21599790,
+  "bounds": {
+    "minlat": 31.2457534,
+    "minlon": 75.6973474,
+    "maxlat": 31.2607949,
+    "maxlon": 75.7091258
+  },
+  "tags": {
+    "addr:city": "Phagwara",
+    "addr:country": "IN",
+    "addr:postcode": "144411",
+    "addr:state": "Punjab",
+    "addr:street": "Delhi Grand Trunk Road",
+    "amenity": "university",
+    "contact:whatsapp": "+91 98525 69000",
+    "education": "university",
+    "email": "info@lpu.co.in",
+    "name": "Lovely Professional University",
+    "name:en": "Lovely Professional University",
+    "name:pa": "ਲਵਲੀ ਪ੍ਰੋਫੈਸ਼ਨਲ ਯੂਨੀਵਰਸਿਟੀ",
+    "name:pnb": "لَولی یونیورسٹی",
+    "nohousenumber": "yes",
+    "official_name:en": "Lovely Professional University, Jalandhar",
+    "operator": "Lovely Group",
+    "operator:type": "private",
+    "phone": "+91 1824-517000",
+    "related_law": "Lovely Professional University Act, 2005",
+    "related_law:ref": "Punjab Act No. 25 of 2005",
+    "related_law:url": "https://www.ugc.ac.in/oldpdf/privateuni/lovelyuni.pdf",
+    "short_name:en": "LPU",
+    "start_date": "2006",
+    "type": "multipolygon",
+    "website": "https://www.lpu.in/",
+    "wikidata": "Q5756621",
+    "wikipedia": "pa:ਲਵਲੀ ਪ੍ਰੋਫ਼ੈਸ਼ਨਲ ਯੂਨੀਵਰਸਿਟੀ"
+  }
+}
+
+  ]
+}

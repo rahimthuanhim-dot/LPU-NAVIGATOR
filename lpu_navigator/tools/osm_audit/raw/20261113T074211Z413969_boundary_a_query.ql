@@ -1,0 +1,1 @@
+[out:json][timeout:60];way(422435593);out tags geom;
