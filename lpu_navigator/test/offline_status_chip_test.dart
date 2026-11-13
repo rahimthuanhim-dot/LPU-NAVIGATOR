@@ -9,9 +9,15 @@ void main() {
       const MaterialApp(
         home: Column(
           children: [
-            Material(child: OfflineStatusChip(state: OfflineReadinessState.ready)),
-            Material(child: OfflineStatusChip(state: OfflineReadinessState.checking)),
-            Material(child: OfflineStatusChip(state: OfflineReadinessState.problem)),
+            Material(
+              child: OfflineStatusChip(state: OfflineReadinessState.ready),
+            ),
+            Material(
+              child: OfflineStatusChip(state: OfflineReadinessState.checking),
+            ),
+            Material(
+              child: OfflineStatusChip(state: OfflineReadinessState.problem),
+            ),
           ],
         ),
       ),

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "fixture",
+  "builtAt": "2026-11-13T00:00:00Z",
+  "bbox": {"south": 31.247, "west": 75.697, "north": 31.2535, "east": 75.704},
+  "datasetKind": "PLACEHOLDER",
+  "buildings": [],
+  "entrances": [
+    {
+      "id": "entrance-1",
+      "buildingId": "missing-building",
+      "nodeId": "missing-node",
+      "label": "PLACEHOLDER Entrance",
+      "isPrimary": true
+    }
+  ],
+  "nodes": [],
+  "edges": []
+}

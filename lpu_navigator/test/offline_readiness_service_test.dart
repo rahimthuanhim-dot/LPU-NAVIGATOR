@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lpu_navigator/data/repositories/campus_repository.dart';
 import 'package:lpu_navigator/services/map/map_asset_provisioner.dart';
 import 'package:lpu_navigator/services/offline_readiness/offline_readiness_service.dart';
 
@@ -17,7 +18,8 @@ void main() {
 ''';
   const geoJson = '{"type":"FeatureCollection","features":[]}';
 
-  Future<Directory> makeStorage() => Directory.systemTemp.createTemp('lpu-ready-');
+  Future<Directory> makeStorage() =>
+      Directory.systemTemp.createTemp('lpu-ready-');
 
   MapAssetLoader loader(bool valid) {
     return (asset) async {
@@ -32,6 +34,9 @@ void main() {
     addTearDown(() => storage.delete(recursive: true));
     final service = OfflineReadinessService(
       MapAssetProvisioner(storage: storage, assetLoader: loader(true)),
+      repository: CampusRepository(
+        loader: (_) => File('assets/data/campus.json').readAsString(),
+      ),
     );
 
     expect(service.current.state, OfflineReadinessState.checking);

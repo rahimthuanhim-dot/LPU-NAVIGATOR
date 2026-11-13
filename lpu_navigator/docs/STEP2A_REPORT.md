@@ -60,8 +60,10 @@ Analyzing lpu_navigator...
 4 issues found. (ran in 6.5s)
 ```
 
-There are no analyzer errors or newly introduced warnings. The Material
-deprecation is emitted by the current Flutter SDK.
+There are no analyzer errors or newly introduced warnings. The current Flutter
+SDK reports the `material.dart` deprecation info in four files; three of those
+files were created in Step 2A. Replacing the import requires a new package,
+which is out of scope because Step 2A permits no new packages.
 
 ### 2. Flutter test — **pass**
 

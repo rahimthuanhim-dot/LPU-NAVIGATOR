@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "placeholder-1",
+  "builtAt": "2026-11-13T00:00:00Z",
+  "bbox": {
+    "south": 31.247,
+    "west": 75.697,
+    "north": 31.2535,
+    "east": 75.704
+  },
+  "datasetKind": "PLACEHOLDER",
+  "buildings": [
+    {
+      "id": "building-placeholder-1",
+      "name": "PLACEHOLDER Building One",
+      "category": "academic",
+      "lat": 31.25,
+      "lon": 75.6995,
+      "aliases": ["PLACEHOLDER One", "PLACEHOLDER Alpha"],
+      "footprint": [
+        {"lat": 31.2496, "lon": 75.699},
+        {"lat": 31.2496, "lon": 75.7},
+        {"lat": 31.2504, "lon": 75.7},
+        {"lat": 31.2504, "lon": 75.699}
+      ],
+      "source": "PLACEHOLDER",
+      "verified": false
+    },
+    {
+      "id": "building-placeholder-2",
+      "name": "PLACEHOLDER Building Two",
+      "category": "residential",
+      "lat": 31.252,
+      "lon": 75.7034,
+      "aliases": ["PLACEHOLDER Two", "PLACEHOLDER Beta"],
+      "footprint": [
+        {"lat": 31.2516, "lon": 75.703},
+        {"lat": 31.2516, "lon": 75.7038},
+        {"lat": 31.2524, "lon": 75.7038},
+        {"lat": 31.2524, "lon": 75.703}
+      ],
+      "source": "PLACEHOLDER",
+      "verified": false
+    },
+    {
+      "id": "building-placeholder-3",
+      "name": "PLACEHOLDER Building Three",
+      "category": "amenity",
+      "lat": 31.2485,
+      "lon": 75.7025,
+      "aliases": ["PLACEHOLDER Three", "PLACEHOLDER Gamma"],
+      "footprint": [
+        {"lat": 31.2481, "lon": 75.7032},
+        {"lat": 31.2481, "lon": 75.7038},
+        {"lat": 31.2489, "lon": 75.7038},
+        {"lat": 31.2489, "lon": 75.7032}
+      ],
+      "source": "PLACEHOLDER",
+      "verified": false
+    }
+  ],
+  "entrances": [
+    {"id": "entrance-placeholder-1", "buildingId": "building-placeholder-1", "nodeId": "node-11", "label": "PLACEHOLDER One Entrance", "isPrimary": true},
+    {"id": "entrance-placeholder-2", "buildingId": "building-placeholder-2", "nodeId": "node-11", "label": "PLACEHOLDER Two Entrance", "isPrimary": true},
+    {"id": "entrance-placeholder-3", "buildingId": "building-placeholder-3", "nodeId": "node-9", "label": "PLACEHOLDER Three Entrance", "isPrimary": true}
+  ],
+  "nodes": [
+    {"id": "node-1", "lat": 31.249, "lon": 75.698, "nodeType": "endpoint", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-2", "lat": 31.249, "lon": 75.7, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-3", "lat": 31.251, "lon": 75.7, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-4", "lat": 31.251, "lon": 75.698, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-5", "lat": 31.2525, "lon": 75.698, "nodeType": "endpoint", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-6", "lat": 31.2525, "lon": 75.7, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-7", "lat": 31.25, "lon": 75.7015, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-8", "lat": 31.25, "lon": 75.703, "nodeType": "endpoint", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-9", "lat": 31.2478, "lon": 75.7025, "nodeType": "entrance", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-10", "lat": 31.2528, "lon": 75.7015, "nodeType": "junction", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-11", "lat": 31.2508, "lon": 75.6995, "nodeType": "entrance", "source": "PLACEHOLDER", "verified": false},
+    {"id": "node-12", "lat": 31.2528, "lon": 75.7025, "nodeType": "entrance", "source": "PLACEHOLDER", "verified": false}
+  ],
+  "edges": [
+    {"id": "edge-1", "sourceNodeId": "node-1", "destinationNodeId": "node-2", "distanceMeters": 190.26, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.249, "lon": 75.698}, {"lat": 31.249, "lon": 75.7}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-2", "sourceNodeId": "node-2", "destinationNodeId": "node-3", "distanceMeters": 222.39, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.249, "lon": 75.7}, {"lat": 31.251, "lon": 75.7}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-3", "sourceNodeId": "node-3", "destinationNodeId": "node-4", "distanceMeters": 190.26, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.251, "lon": 75.7}, {"lat": 31.251, "lon": 75.698}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-4", "sourceNodeId": "node-4", "destinationNodeId": "node-1", "distanceMeters": 222.39, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.251, "lon": 75.698}, {"lat": 31.249, "lon": 75.698}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-5", "sourceNodeId": "node-3", "destinationNodeId": "node-5", "distanceMeters": 252.91, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.251, "lon": 75.7}, {"lat": 31.2525, "lon": 75.698}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-6", "sourceNodeId": "node-5", "destinationNodeId": "node-6", "distanceMeters": 190.26, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2525, "lon": 75.698}, {"lat": 31.2525, "lon": 75.7}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-7", "sourceNodeId": "node-6", "destinationNodeId": "node-4", "distanceMeters": 252.98, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2525, "lon": 75.7}, {"lat": 31.251, "lon": 75.698}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-8", "sourceNodeId": "node-2", "destinationNodeId": "node-7", "distanceMeters": 180.9, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.249, "lon": 75.7}, {"lat": 31.25, "lon": 75.7015}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-9", "sourceNodeId": "node-7", "destinationNodeId": "node-8", "distanceMeters": 142.68, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.25, "lon": 75.7015}, {"lat": 31.25, "lon": 75.703}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-10", "sourceNodeId": "node-8", "destinationNodeId": "node-9", "distanceMeters": 249.2, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.25, "lon": 75.703}, {"lat": 31.2478, "lon": 75.7025}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-11", "sourceNodeId": "node-9", "destinationNodeId": "node-7", "distanceMeters": 262.45, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2478, "lon": 75.7025}, {"lat": 31.25, "lon": 75.7015}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-12", "sourceNodeId": "node-7", "destinationNodeId": "node-10", "distanceMeters": 311.35, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.25, "lon": 75.7015}, {"lat": 31.2528, "lon": 75.7015}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-13", "sourceNodeId": "node-10", "destinationNodeId": "node-11", "distanceMeters": 292.58, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2528, "lon": 75.7015}, {"lat": 31.2508, "lon": 75.6995}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-14", "sourceNodeId": "node-11", "destinationNodeId": "node-12", "distanceMeters": 361.64, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2508, "lon": 75.6995}, {"lat": 31.2528, "lon": 75.7025}], "source": "PLACEHOLDER", "verified": false},
+    {"id": "edge-15", "sourceNodeId": "node-12", "destinationNodeId": "node-10", "distanceMeters": 95.06, "pathwayType": "walkway", "isAccessible": true, "isRestricted": false, "oneway": false, "geometry": [{"lat": 31.2528, "lon": 75.7025}, {"lat": 31.2528, "lon": 75.7015}], "source": "PLACEHOLDER", "verified": false}
+  ]
+}

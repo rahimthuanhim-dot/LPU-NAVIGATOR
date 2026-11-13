@@ -4,28 +4,24 @@ import 'dart:typed_data';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:lpu_navigator/data/models/campus_dataset.dart';
+import 'package:lpu_navigator/data/repositories/campus_repository.dart';
 import 'package:lpu_navigator/services/map/map_asset_provisioner.dart';
 
 const _style = '''
 {"version":8,"glyphs":"file://__APP_STORAGE__/glyphs/{fontstack}/{range}.pbf",
 "layers":[{"id":"labels","type":"symbol","layout":{"text-font":["NotoSansRegular"]}}]}
 ''';
-const _geoJson = '{"type":"FeatureCollection","features":[]}';
-
 ByteData _data(String value) =>
     ByteData.sublistView(Uint8List.fromList(utf8.encode(value)));
 
 MapAssetLoader _loader({
   String style = _style,
-  String geoJson = _geoJson,
   bool includeGlyph = true,
-  bool includeGeoJson = true,
+  bool includeStyle = true,
 }) {
   return (asset) async {
-    if (asset == 'assets/map/style.json') return _data(style);
-    if (includeGeoJson && asset == 'assets/map/test.geojson') {
-      return _data(geoJson);
-    }
+    if (includeStyle && asset == 'assets/map/style.json') return _data(style);
     if (includeGlyph &&
         asset == 'assets/map/glyphs/NotoSansRegular/0-255.pbf') {
       return ByteData.sublistView(Uint8List(2048)..fillRange(0, 2048, 1));
@@ -33,6 +29,10 @@ MapAssetLoader _loader({
     throw StateError('not found');
   };
 }
+
+Future<CampusDataset> _dataset() => CampusRepository(
+  loader: (_) => File('assets/data/campus.json').readAsString(),
+).load();
 
 void main() {
   late Directory temp;
@@ -51,7 +51,7 @@ void main() {
     final result = await MapAssetProvisioner(
       storage: temp,
       assetLoader: _loader(),
-    ).provision();
+    ).provision(dataset: await _dataset());
 
     expect(result.isReady, isTrue);
     expect(File(result.stylePath!).existsSync(), isTrue);
@@ -65,7 +65,7 @@ void main() {
     final result = await MapAssetProvisioner(
       storage: temp,
       assetLoader: _loader(includeGlyph: false),
-    ).provision();
+    ).provision(dataset: await _dataset());
 
     expect(result.problems.single.code, 'missing_asset');
   });
@@ -79,7 +79,7 @@ void main() {
           'https://example.invalid',
         ),
       ),
-    ).provision();
+    ).provision(dataset: await _dataset());
 
     expect(result.problems.single.code, 'non_file_url');
   });
@@ -88,7 +88,7 @@ void main() {
     final result = await MapAssetProvisioner(
       storage: temp,
       assetLoader: _loader(style: '{'),
-    ).provision();
+    ).provision(dataset: await _dataset());
 
     expect(result.problems.single.code, 'invalid_style_json');
   });
@@ -96,8 +96,8 @@ void main() {
   test('reports a missing asset', () async {
     final result = await MapAssetProvisioner(
       storage: temp,
-      assetLoader: _loader(includeGeoJson: false),
-    ).provision();
+      assetLoader: _loader(includeStyle: false),
+    ).provision(dataset: await _dataset());
 
     expect(result.problems.single.code, 'missing_asset');
   });

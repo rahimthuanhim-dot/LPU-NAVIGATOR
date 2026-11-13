@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:maplibre_gl/maplibre_gl.dart';
 
 import '../../application/map_controller.dart';
+import '../../core/constants.dart';
 import '../../core/problems.dart';
+import '../../data/models/campus_dataset.dart';
 import '../../services/offline_readiness/offline_readiness_service.dart';
 import '../widgets/offline_status_chip.dart';
 
@@ -34,12 +36,21 @@ class _HomeScreenState extends State<HomeScreen> {
           body: Stack(
             children: [
               Positioned.fill(
-                child: readiness.state == OfflineReadinessState.ready &&
-                        widget.controller.stylePath != null
+                child:
+                    readiness.state == OfflineReadinessState.ready &&
+                        widget.controller.stylePath != null &&
+                        readiness.dataset != null
                     ? MapLibreMap(
-                        initialCameraPosition: const CameraPosition(
-                          target: LatLng(31.25, 75.70),
-                          zoom: 15,
+                        initialCameraPosition: CameraPosition(
+                          target: LatLng(
+                            (readiness.dataset!.bbox.south +
+                                    readiness.dataset!.bbox.north) /
+                                2,
+                            (readiness.dataset!.bbox.west +
+                                    readiness.dataset!.bbox.east) /
+                                2,
+                          ),
+                          zoom: AppConstants.defaultMapZoom,
                         ),
                         styleString: widget.controller.stylePath!,
                         onStyleLoadedCallback:
@@ -52,34 +63,75 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Center(child: CircularProgressIndicator()),
                       ),
               ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                height: MediaQuery.of(context).padding.top,
+                child: const ColoredBox(
+                  color: const Color(0xF5FFFFFF),
+                ),
+              ),
               SafeArea(
+                top: true,
+                bottom: false,
+                left: false,
+                right: false,
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(12),
-                    child: Row(
+                  child: Container(
+                    width: double.infinity,
+                    color: const Color(0xF5FFFFFF),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          'LPU Navigator',
-                          style: Theme.of(context).textTheme.titleLarge,
+                        Padding(
+                          padding: const EdgeInsets.all(12),
+                          child: Row(
+                            children: [
+                              Text(
+                                'LPU Navigator',
+                                style: Theme.of(context).textTheme.titleLarge,
+                              ),
+                              const Spacer(),
+                              OfflineStatusChip(
+                                state: readiness.state,
+                                onTap:
+                                    readiness.state ==
+                                        OfflineReadinessState.problem
+                                    ? () => _showProblems(readiness.problems)
+                                    : null,
+                              ),
+                            ],
+                          ),
                         ),
-                        const Spacer(),
-                        OfflineStatusChip(
-                          state: readiness.state,
-                          onTap: readiness.state ==
-                                  OfflineReadinessState.problem
-                              ? () => _showProblems(readiness.problems)
-                              : null,
-                        ),
+                        if (readiness.dataset?.datasetKind ==
+                            DatasetKind.placeholder)
+                          Container(
+                            margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
+                            color: const Color(0xfffff0c2),
+                            child: const Text(
+                              'PLACEHOLDER DATA - not verified',
+                            ),
+                          ),
                       ],
                     ),
                   ),
                 ),
               ),
               SafeArea(
+                top: false,
+                left: false,
+                right: false,
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: Padding(
+                  child: Container(
+                    width: double.infinity,
+                    color: const Color(0xF5FFFFFF),
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                     child: Row(
                       children: [
@@ -89,6 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: const InputDecoration(
                               hintText: 'Search destinations (coming soon)',
                               filled: true,
+                              fillColor: const Color(0xF5FFFFFF),
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -96,9 +149,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(width: 8),
                         Tooltip(
                           message: 'GPS not enabled yet',
-                          child: IconButton(
-                            onPressed: null,
-                            icon: const Icon(Icons.my_location),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: const Color(0xF5FFFFFF),
+                              borderRadius: BorderRadius.circular(24),
+                            ),
+                            child: IconButton(
+                              onPressed: null,
+                              icon: const Icon(Icons.my_location),
+                            ),
                           ),
                         ),
                       ],

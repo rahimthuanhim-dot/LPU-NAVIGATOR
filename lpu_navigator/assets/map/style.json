@@ -1,11 +1,11 @@
 {
   "version": 8,
-  "name": "Offline placeholder map",
+  "name": "Offline campus map",
   "glyphs": "file://__APP_STORAGE__/glyphs/{fontstack}/{range}.pbf",
   "sources": {
-    "placeholder": {
+    "campus": {
       "type": "geojson",
-      "data": "file://__APP_STORAGE__/test.geojson"
+      "data": "file://__APP_STORAGE__/campus_layers.geojson"
     }
   },
   "layers": [
@@ -17,30 +17,43 @@
       }
     },
     {
-      "id": "placeholder-polygons",
+      "id": "campus-buildings",
       "type": "fill",
-      "source": "placeholder",
-      "filter": ["==", ["geometry-type"], "Polygon"],
+      "source": "campus",
+      "filter": ["==", "kind", "building"],
       "paint": {
-        "fill-color": ["get", "color"],
+        "fill-color": "#9ccfa3",
         "fill-opacity": 0.65,
         "fill-outline-color": "#263238"
       }
     },
     {
-      "id": "placeholder-lines",
+      "id": "campus-paths",
       "type": "line",
-      "source": "placeholder",
-      "filter": ["==", ["geometry-type"], "LineString"],
+      "source": "campus",
+      "filter": ["==", "kind", "path"],
       "paint": {
         "line-color": "#263238",
         "line-width": 4
       }
     },
     {
-      "id": "placeholder-labels",
+      "id": "campus-entrances",
+      "type": "circle",
+      "source": "campus",
+      "filter": ["==", "kind", "entrance"],
+      "paint": {
+        "circle-color": "#d32f2f",
+        "circle-radius": 5,
+        "circle-stroke-color": "#ffffff",
+        "circle-stroke-width": 2
+      }
+    },
+    {
+      "id": "campus-building-labels",
       "type": "symbol",
-      "source": "placeholder",
+      "source": "campus",
+      "filter": ["==", "kind", "building_label"],
       "layout": {
         "symbol-placement": "point",
         "text-field": ["get", "name"],

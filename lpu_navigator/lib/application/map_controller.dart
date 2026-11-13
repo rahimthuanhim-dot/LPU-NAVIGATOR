@@ -9,8 +9,8 @@ import '../services/offline_readiness/offline_readiness_service.dart';
 
 class MapController extends ChangeNotifier {
   MapController({OfflineReadinessService? readinessService})
-      : readinessService = readinessService ??
-            OfflineReadinessService(MapAssetProvisioner());
+    : readinessService =
+          readinessService ?? OfflineReadinessService(MapAssetProvisioner());
 
   final OfflineReadinessService readinessService;
   final Duration styleLoadTimeout = AppConstants.styleLoadTimeout;
@@ -36,7 +36,8 @@ class MapController extends ChangeNotifier {
             problems: <MapProblem>[
               MapProblem(
                 code: 'style_load_timeout',
-                message: 'Map style did not finish loading within '
+                message:
+                    'Map style did not finish loading within '
                     '${styleLoadTimeout.inSeconds} seconds.',
               ),
             ],

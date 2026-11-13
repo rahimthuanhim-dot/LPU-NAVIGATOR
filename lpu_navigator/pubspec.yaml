@@ -56,8 +56,8 @@ flutter:
 
   assets:
     - assets/map/style.json
-    - assets/map/test.geojson
     - assets/map/glyphs/NotoSansRegular/0-255.pbf
+    - assets/data/campus.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

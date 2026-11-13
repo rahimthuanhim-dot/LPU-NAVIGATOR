@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 
 import '../../core/constants.dart';
 import '../../core/problems.dart';
+import '../../data/models/campus_dataset.dart';
+import 'map_layer_builder.dart';
 
 typedef MapAssetLoader = Future<ByteData> Function(String assetPath);
 
@@ -21,45 +23,40 @@ class MapProvisioningResult {
 }
 
 class MapAssetProvisioner {
-  MapAssetProvisioner({
-    Directory? storage,
-    MapAssetLoader? assetLoader,
-  })  : storage = storage ??
-            Directory('${Directory.systemTemp.path}/lpu_navigator_map'),
-        assetLoader = assetLoader ?? rootBundle.load;
+  MapAssetProvisioner({Directory? storage, MapAssetLoader? assetLoader})
+    : storage =
+          storage ??
+          Directory('${Directory.systemTemp.path}/lpu_navigator_map'),
+      assetLoader = assetLoader ?? rootBundle.load;
 
   // TODO: Move the default storage to the app-support directory later.
   final Directory storage;
   final MapAssetLoader assetLoader;
 
-  Future<MapProvisioningResult> provision() async {
+  Future<MapProvisioningResult> provision({
+    required CampusDataset dataset,
+  }) async {
     try {
       await storage.create(recursive: true);
       final styleText = await _loadText(AppConstants.styleAsset);
       final styleJson = _decodeObject(styleText, 'invalid_style_json');
       _validateOfflineUrls(styleJson);
 
-      final geoJsonText = await _loadText(AppConstants.geoJsonAsset);
-      final geoJson = _decodeObject(geoJsonText, 'invalid_geojson');
-      if (geoJson['type'] != 'FeatureCollection') {
-        throw const _ProvisioningFailure(
-          MapProblem(
-            code: 'invalid_geojson',
-            message: 'test.geojson must be a FeatureCollection.',
-          ),
-        );
-      }
+      final geoJsonText = MapLayerBuilder().buildJson(dataset);
 
       final fontStacks = _fontStacks(styleJson);
       final styleFile = File('${storage.path}/style.json');
-      final geoJsonFile = File('${storage.path}/test.geojson');
+      final geoJsonFile = File(
+        '${storage.path}/${AppConstants.campusLayersFile}',
+      );
       await styleFile.writeAsString(
         styleText.replaceAll(AppConstants.storageToken, storage.path),
       );
       await geoJsonFile.writeAsString(geoJsonText);
 
       for (final fontStack in fontStacks) {
-        final asset = '${AppConstants.glyphAssetPrefix}$fontStack/'
+        final asset =
+            '${AppConstants.glyphAssetPrefix}$fontStack/'
             '${AppConstants.glyphRange}';
         final glyphFile = File(
           '${storage.path}/glyphs/$fontStack/${AppConstants.glyphRange}',
@@ -171,7 +168,9 @@ class MapAssetProvisioner {
 
   void _validateOfflineUrls(Object? value) {
     if (value is String) {
-      for (final match in RegExp(r'[A-Za-z][A-Za-z0-9+.-]*://').allMatches(value)) {
+      for (final match in RegExp(
+        r'[A-Za-z][A-Za-z0-9+.-]*://',
+      ).allMatches(value)) {
         if (match.group(0) != 'file://') {
           throw _ProvisioningFailure(
             MapProblem(

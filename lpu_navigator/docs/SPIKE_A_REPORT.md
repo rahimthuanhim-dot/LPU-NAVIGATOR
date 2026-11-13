@@ -71,10 +71,8 @@ included.
   analyzer policy.
 - `flutter build apk --debug`: passed.
 - `flutter build apk --release`: passed.
-- The glyph PBF has a non-empty standard protobuf header, contains
-  `Klokantech Noto Sans Regular`, and contains the `0-255` range.
-- The sample labels (`PLACEHOLDER North`, `South`, and `East`, plus the other
-  ASCII labels) are covered by the bundled `0-255` range.
+- The glyph PBF has a non-empty standard protobuf header and contains the
+  `0-255` range.
 - The rewritten style still contains no HTTP, HTTPS, or FTP resource.
 - Android emulator `emulator-5554` was used for the Phase 0B run.
 
