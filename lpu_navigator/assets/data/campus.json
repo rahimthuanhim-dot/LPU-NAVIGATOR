@@ -61,7 +61,7 @@
   ],
   "entrances": [
     {"id": "entrance-placeholder-1", "buildingId": "building-placeholder-1", "nodeId": "node-11", "label": "PLACEHOLDER One Entrance", "isPrimary": true},
-    {"id": "entrance-placeholder-2", "buildingId": "building-placeholder-2", "nodeId": "node-11", "label": "PLACEHOLDER Two Entrance", "isPrimary": true},
+    {"id": "entrance-placeholder-2", "buildingId": "building-placeholder-2", "nodeId": "node-12", "label": "PLACEHOLDER Two Entrance", "isPrimary": true},
     {"id": "entrance-placeholder-3", "buildingId": "building-placeholder-3", "nodeId": "node-9", "label": "PLACEHOLDER Three Entrance", "isPrimary": true}
   ],
   "nodes": [

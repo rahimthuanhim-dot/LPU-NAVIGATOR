@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 0,
                 height: MediaQuery.of(context).padding.top,
                 child: const ColoredBox(
-                  color: const Color(0xF5FFFFFF),
+                  color: const Color(0xFFFFFFFF),
                 ),
               ),
               SafeArea(
@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.topCenter,
                   child: Container(
                     width: double.infinity,
-                    color: const Color(0xF5FFFFFF),
+                    color: const Color(0xFFFFFFFF),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -131,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   alignment: Alignment.bottomCenter,
                   child: Container(
                     width: double.infinity,
-                    color: const Color(0xF5FFFFFF),
+                    color: const Color(0xFFFFFFFF),
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
                     child: Row(
                       children: [
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             decoration: const InputDecoration(
                               hintText: 'Search destinations (coming soon)',
                               filled: true,
-                              fillColor: const Color(0xF5FFFFFF),
+                              fillColor: const Color(0xFFFFFFFF),
                               border: OutlineInputBorder(),
                             ),
                           ),
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           message: 'GPS not enabled yet',
                           child: Container(
                             decoration: BoxDecoration(
-                              color: const Color(0xF5FFFFFF),
+                              color: const Color(0xFFFFFFFF),
                               borderRadius: BorderRadius.circular(24),
                             ),
                             child: IconButton(
